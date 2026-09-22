@@ -1,0 +1,15 @@
+# Rubric: is this a good first issue?
+
+## Checks
+
+| Check | Evidence | Pass condition | Weight |
+|---|---|---|---|
+| maintainer-alive | Repo facts: "maintainer first-response sample" (days to first owner/member/collaborator comment across 5 recently updated issues); "last 5 default-branch commits" (author + date) | Pass if at least 2 of the 5 sampled issues show an owner/member/collaborator first response within 30 days of the capture date, OR at least one of the last 5 default-branch commits is a human-authored (non-`[bot]`) commit within 30 days of the capture date | required |
+| repo-in-use | Repo facts: "archived:" flag; "last push to any branch" date | Pass if the repo is not archived AND the last push to any branch is within 90 days of the capture date | required |
+| bounded-scope | Issue body and comment thread | Pass if the issue describes one cohesive piece of work with a concrete, decided target outcome — this includes: a fully-specified multi-file task where the reporter already laid out exactly what changes are needed; a terse ask (even one line) if it names a specific, concrete target, especially when opened by a maintainer/collaborator or labeled "good first issue"; or a bug report naming one symptom even if it lists multiple possible causes or optional follow-up suggestions, as long as the core fix is a single identifiable target. Fail if: it is explicitly an umbrella/tracking issue meant to be split into separate issues; the thread shows an unresolved design debate with no maintainer decision; a maintainer states it touches core internals; it is a pure usage/support question ("how do I...") rather than a contribution; or the thread shows a history of multiple abandoned attempts (two or more closed, unmerged linked/mentioned PRs, or repeated claim-then-go-silent cycles) — that history means the issue is harder than it looks, whatever its apparent scope | required |
+| unclaimed | Repo facts: "this issue: assignees" and "linked PRs"; the full comment thread | Pass if there is no assignee, no open linked PR, and no comment (anywhere in the thread, not just the sidebar) from someone else stating or showing they are actively working on it with an open, non-abandoned PR. A closed/unmerged PR from a past attempt does not fail this check by itself, but a currently open PR (formally linked or just mentioned in the thread) does | required |
+| ai-contribution-allowed | Repo facts: "contribution policy" line | Fail only if the policy states an outright ban on AI-generated or AI-assisted contributions. Conditions (disclosure, requiring the contributor to understand/test every change, human review) pass. No stated policy passes | required |
+
+## Verdict rule
+
+Accept only if every required check passes. Any required check graded `fail` rejects the issue. Treat `unclear` the same as `fail` for every check above: if the bundle does not contain enough evidence to decide a required check, reject — a first issue you cannot verify from the evidence is not one to take. There are no `preferred` checks in this rubric yet.
